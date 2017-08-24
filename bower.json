@@ -23,6 +23,7 @@
   "dependencies": {
     "deck.js": "^1.1.0",
     "klipse": "^3.1.7",
-    "brainbow": "^2.1.0"
+    "brainbow": "^2.1.0",
+    "ace-builds": "^1.2.8"
   }
 }
