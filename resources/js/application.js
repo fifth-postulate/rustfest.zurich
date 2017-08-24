@@ -1,6 +1,6 @@
 (function($, Elm){
     $.deck('.slide');
-    $(".clojure").load_snippets();
+    $(".rust").load_snippets();
 
     var plain = $('#plain-brainbow')[0];
     Elm.Brainbow.embed(plain);
