@@ -52,3 +52,7 @@ span.central {
     width: 40%;
     vertical-align: top;
 }
+
+div.ace_editor.rust {
+    font-size: 24px;
+}
