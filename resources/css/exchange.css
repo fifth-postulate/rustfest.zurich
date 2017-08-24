@@ -1,0 +1,54 @@
+h1 {
+    font-size: 300%;
+}
+
+h1.graffiti {
+    color: #af0;
+    text-shadow: 0 0 15px #af0, 0 0 2px #fff;
+    transform: rotate(-12deg)
+}
+
+.slide > .central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#plain-brainbow div, #word-brainbow div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.permutation {
+    list-style: none;
+}
+
+ul.permutation li.focus {
+    display: inline-block;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+ul.permutation li.intense.focus {
+    font-size: 200%;
+}
+
+table, td {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+td {
+    padding: 1em;
+}
+
+span.central {
+    font-size: 300%;
+}
+
+.flanked {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+}

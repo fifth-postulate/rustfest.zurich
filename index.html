@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Solving the Rubiks Cube with Clojure</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="bower_components/deck.js/core/deck.core.css">
+        <link rel="stylesheet" href="bower_components/deck.js/themes/style/neon.css">
+        <link rel="stylesheet" href="bower_components/deck.js/themes/transition/horizontal-slide.css">
+        <link rel="stylesheet" href="bower_components/klipse/dist/codemirror.css">
+        <link rel="stylesheet" href="resources/css/exchange.css">
+    </head>
+    <body>
+        <div class="deck-container">
+            <div class="slide">
+                <h1>Solving the Rubiks Cube</h1>
+            </div>
+            <div class="slide">
+                <h1>Solving <strike>the Rubiks Cube</strike></h1>
+            </div>
+            <div class="slide">
+                <h1>Solving <strike>the Rubiks Cube</strike></h1>
+                <h1 class="graffiti">Permutation Puzzles</h1>
+            </div>
+            <div class="slide">
+                <img class="central" height="600px" src="resources/image/rubik_cube.png">
+            </div>
+            <div class="slide">
+                <img class="central" height="600px" src="resources/image/Bentley_Snowflake11.png">
+            </div>
+            <div class="slide">
+                <ol class="central">
+                    <li>Can I solve this state?</li>
+                    <li>How do I solve this state?</li>
+                </ol>
+            </div>
+            <div class="slide">
+                <img class="central" height="600px" src="resources/image/Disassembled-rubix-1.jpg">
+            </div>
+            <div class="slide">
+                <ol class="central">
+                    <li>Can I solve this state?</li>
+                    <li>How do I solve this state?</li>
+                </ol>
+            </div>
+            <div class="slide">
+                <div class="central" id="plain-brainbow"></div>
+            </div>
+            <div class="slide">
+                <ul class="central permutation">
+                    <li>0 &rarr; 1</li>
+                    <li>1 &rarr; 2</li>
+                    <li>2 &rarr; 3</li>
+                    <li>3 &rarr; 4</li>
+                    <li>4 &rarr; 5</li>
+                    <li>5 &rarr; 0</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <ul class="central permutation">
+                    <li>0 &rarr; 2</li>
+                    <li>1 &rarr; 1</li>
+                    <li>2 &rarr; 0</li>
+                    <li>3 &rarr; 3</li>
+                    <li>4 &rarr; 4</li>
+                    <li>5 &rarr; 5</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="permutations-as-map.clj"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <quote class="central">
+                    <em>Permutations</em> with <em>compose</em> have the following properties.<br>
+                    For all permutations u, v and w
+                    <ol>
+                        <li>(u &middot v) &middot w = u &middot (v &middot w)</li>
+                        <li>There exist an identity, <em>Id</em>, with Id &middot v = v &middot Id = v</li>
+                        <li>For every u, there exist u<sup>-1</sup>, with u &middot u<sup>-1</sup> = Id</li>
+                    </ol>
+                </quote>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="multiply.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide" style="background-color: white">
+                <img class="central" background="grey" height="600px" src="resources/image/cayley.png">
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="generate.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="factorial.clj"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <ul class="central permutation">
+                    <li>0 &rarr; 1</li>
+                    <li>1 &rarr; 2</li>
+                    <li>2 &rarr; 3</li>
+                    <li>3 &rarr; 4</li>
+                    <li>4 &rarr; 5</li>
+                    <li>5 &rarr; 0</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <ul class="central permutation">
+                    <li class="focus">0 &rarr; 1</li>
+                    <li>1 &rarr; 2</li>
+                    <li>2 &rarr; 3</li>
+                    <li>3 &rarr; 4</li>
+                    <li>4 &rarr; 5</li>
+                    <li>5 &rarr; 0</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <ul class="central permutation">
+                    <li class="intense focus">0 &rarr; 1</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <table class="central">
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                   </tr>
+                </table>
+            </div>
+            <div class="slide">
+                <table class="central">
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                   </tr>
+                    <tr>
+                        <td>Id</td>
+                        <td>t</td>
+                   </tr>
+                </table>
+            </div>
+            <div class="slide">
+                <table class="central">
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                   </tr>
+                    <tr>
+                        <td>Id</td>
+                        <td>t</td>
+                        <td>s</td>
+                   </tr>
+                </table>
+            </div>
+            <div class="slide">
+                <table class="central">
+                    <tr>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                   </tr>
+                    <tr>
+                        <td>Id</td>
+                        <td>t</td>
+                        <td>s</td>
+                        <td>ts</td>
+                        <td>t<sup>2</sup>s</td>
+                        <td>t<sup>3</sup></td>
+                   </tr>
+                </table>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="level-sift.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="brainbow-levels.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="brainbow.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <ol class="central">
+                    <li><strike>Can I solve this state?</strike></li>
+                    <li>How do I solve this state?</li>
+                </ol>
+            </div>
+            <div class="slide">
+                <div class="central" id="word-brainbow"></div>
+            </div>
+            <div class="slide">
+                <span class="central">x<sup>-1</sup></span>
+            </div>
+            <div class="slide">
+                <span class="central">ts</span>
+            </div>
+            <div class="slide">
+                <span class="central">tttt = t<sup>4</sup></span>
+            </div>
+            <div class="slide">
+                <span class="central">tt<sup>-1</sup> = <em>Id</em></span>
+            </div>
+            <div class="slide">
+                <span class="central">t<sup>2</sup>ss<sup>-1</sup>t<sup>-1</sup>=t</span>
+            </div>
+            <div class="slide">
+                <quote class="central">
+                    <em>Normalized words</em> with <em>concatenation</em> have the following properties.<br>
+                    For all words u, v and w
+                    <ol>
+                        <li>(u &middot v) &middot w = u &middot (v &middot w)</li>
+                        <li>There exist an identity, <em>Id</em>, with Id &middot v = v &middot Id = v</li>
+                        <li>For every u, there exist u<sup>-1</sup>, with u &middot u<sup>-1</sup> = Id</li>
+                    </ol>
+                </quote>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="words.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <pre class="central">
+(multiply
+  (multiply t s)
+  (multiply (inverse t) s))</pre>
+            </div>
+            <div class="slide">
+                <pre>
+                    <code class="clojure" data-snippet="expression.clj" data-external-libs="/mathematics/src/"></code>
+                </pre>
+            </div>
+            <div class="slide">
+                <div>
+                    <div class="flanked" id="solve-brainbow"></div>
+
+                    <pre class="flanked">
+                        <code class="clojure" data-snippet="solve.clj" data-external-libs="/mathematics/src/"></code>
+                    </pre>
+                </div>
+            </div>
+            <div class="slide">
+                <ol class="central">
+                    <li><strike>Can I solve this state?</strike></li>
+                    <li><strike>How do I solve this state?</strike></li>
+                </ol>
+            </div>
+            <div class="slide">
+                <img class="central" height="600px" src="resources/image/Bentley_Snowflake11.png">
+            </div>
+            <div class="slide">
+                <h3>Tools</h3>
+                <ul>
+                    <li><strong>klipse</strong>: https://github.com/viebel/klipse</li>
+                    <li><strong>Brainbow</strong>: http://fifth-postulate.nl/brainbow/</li>
+                </ul>
+                <h3>Images</h3>
+                <ul>
+                    <li><strong>Rubik Cube</strong>:By Alvaro qc (self-made, based on the work of Keqs) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons</li>
+                    <li><strong>Snowflake</strong>:By Wilson Bentley (http://snowflakebentley.com/snowflakes.htm) [Public domain], via Wikimedia Commons</li>
+                    <li><strong>Disassembled Cube</strong>: By User Curis on en.wikipedia [CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons</li>
+                    <li><strong>Cayley Graph</strong>: David Benbennick the copyright holder of this work, release this work into the public domain. This applies worldwide. </li>
+                </ul>
+            </div>
+        </div>
+        <script src="bower_components/deck.js/jquery.min.js"></script>
+        <script src="bower_components/deck.js/modernizr.custom.js"></script>
+        <script src="bower_components/deck.js/core/deck.core.js"></script>
+        <script src="bower_components/brainbow/js/brainbow.js"></script>
+        <script src="resources/js/load-snippets.js"></script>
+        <script src="resources/js/application.js"></script>
+        <script src="resources/js/klipse_settings.js"></script>
+        <script src="bower_components/klipse/dist/klipse_plugin.js"></script>
+    </body>
+</html>

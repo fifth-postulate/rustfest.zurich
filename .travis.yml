@@ -1,0 +1,7 @@
+language: bash
+sudo: false
+script:
+  - echo "nothing to do"
+after_success: |
+  [ $TRAVIS_BRANCH = master ] &&
+  bash deploy-documentation.sh
