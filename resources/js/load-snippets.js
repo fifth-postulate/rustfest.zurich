@@ -8,7 +8,8 @@
         this.each(function(index, element){
             var url = settings.location + $(element).data(settings.data);
             $.ajax(url).done(function(data){
-                $(element).html(data);
+                console.log(data);
+                $(element).val(data);
             });
         });
 
