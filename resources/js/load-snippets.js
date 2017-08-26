@@ -1,4 +1,4 @@
-(function($){
+(function($, ace){
     $.fn.load_snippets = function(options){
         console.log("loading snippets");
         var settings = $.extend({
@@ -8,11 +8,16 @@
         this.each(function(index, element){
             var url = settings.location + $(element).data(settings.data);
             $.ajax(url).done(function(data){
-                console.log(data);
-                $(element).val(data);
+                element.style.fontSize = '24px';
+                var editor = ace.edit(element);
+                editor.setTheme('ace/theme/chrome');
+                var session = editor.getSession();
+                session.setMode('ace/mode/rust');
+                session.setNewLineMode('unix');
+                session.setValue(data);
             });
         });
 
         return this;
     };
-})(jQuery);
+})(jQuery, ace);

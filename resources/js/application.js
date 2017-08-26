@@ -1,12 +1,7 @@
 (function($, Elm, ace){
     $.deck('.slide');
     $(".rust")
-        .load_snippets()
-        .each(function(index, element){
-            var editor = ace.edit(element);
-            editor.setTheme("ace/theme/chrome");
-            editor.getSession().setMode('ace/mode/rust');
-        });
+        .load_snippets();
 
     var plain = $('#plain-brainbow')[0];
     Elm.Brainbow.embed(plain);
