@@ -8,8 +8,10 @@
         this.each(function(index, element){
             var url = settings.location + $(element).data(settings.data);
             $.ajax(url).done(function(data){
-                element.style.fontSize = '24px';
                 var editor = ace.edit(element);
+                editor.setOptions({
+                    maxLines: 15
+                });
                 editor.setTheme('ace/theme/chrome');
                 var session = editor.getSession();
                 session.setMode('ace/mode/rust');

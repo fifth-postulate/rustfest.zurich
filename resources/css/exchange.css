@@ -53,6 +53,6 @@ span.central {
     vertical-align: top;
 }
 
-div.ace_editor.rust {
+pre.ace_editor.ace-chrome {
     font-size: 24px;
 }
