@@ -218,9 +218,7 @@
             </div>
             <div class="slide">
                 <pre class="central">
-(multiply
-  (multiply t s)
-  (multiply (inverse t) s))</pre>
+t.times(&s).times(&t.inverse().times(&s.inverse())
             </div>
             <div class="slide">
                 <textarea class="rust" data-snippet="expression.clj"></textarea>
