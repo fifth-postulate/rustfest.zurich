@@ -10,7 +10,7 @@
             $.ajax(url).done(function(data){
                 var editor = ace.edit(element);
                 editor.setOptions({
-                    maxLines: 15
+                    maxLines: 20
                 });
                 editor.setTheme('ace/theme/chrome');
                 var session = editor.getSession();
